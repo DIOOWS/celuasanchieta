@@ -1,4 +1,5 @@
-const cacheName = "celulas-atitude-cache-v1";
+const cacheName = "celulas-atitude-cache-v2";
+
 const filesToCache = [
   "./",
   "./index.html",
