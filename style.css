@@ -11,12 +11,7 @@
   font-family: "Poppins", Arial, sans-serif;
 }
 
-body {
-  background-color: #000;
-  color: #fff;
-  line-height: 1.6;
-}
-
+/* ===== CONFIGURAÇÕES GERAIS ===== */
 body {
   background-color: #000;
   color: #fff;
@@ -24,8 +19,6 @@ body {
   padding-top: 90px; /* espaço pra navbar fixa */
 }
 
-
-/* ===== NAVBAR ===== */
 /* ===== NAVBAR ===== */
 .navbar {
   background: #000;
@@ -63,7 +56,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-
 /* ===== CAMPO DE BUSCA ===== */
 #search {
   width: 90%;
@@ -72,95 +64,4 @@ body {
   margin: 25px auto;
   padding: 12px 16px;
   border-radius: 12px;
-  border: 2px solid #D4AF37;
-  background: #111;
-  color: #fff;
-  font-size: 15px;
-  outline: none;
-  transition: 0.3s;
-}
-
-#search::placeholder {
-  color: #aaa;
-}
-
-#search:focus {
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
-}
-
-/* ===== LISTA DE CÉLULAS ===== */
-.lista {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 900px;
-  margin: 0 auto 50px auto;
-  padding: 0 15px;
-}
-
-.card {
-  background: #111;
-  border-radius: 14px;
-  padding: 20px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
-  transition: 0.3s;
-  border: 1px solid #333;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  border: 1px solid #D4AF37;
-}
-
-.card h2 {
-  color: #D4AF37;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: 14px;
-  color: #eee;
-  margin: 4px 0;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 12px;
-  background: #D4AF37;
-  color: #000;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #c29d31;
-  color: #000;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  background: #000;
-  color: white;
-  padding: 40px 10px;
-  border-top: 4px solid #D4AF37;
-  text-align: center;
-}
-
-footer p {
-  margin-bottom: 15px;
-  font-size: 14px;
-}
-
-footer .instagram-icon svg {
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-footer .instagram-icon:hover svg {
-  transform: scale(1.2);
-  opacity: 0.85;
-}
+  border: 2px solid
