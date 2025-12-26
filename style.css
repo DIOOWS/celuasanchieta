@@ -12,33 +12,42 @@
 }
 
 body {
-  background-color: #f4f6fa;
-  color: #0B1C36;
+  background-color: #111; /* preto elegante */
+  color: #fff;
   line-height: 1.6;
 }
 
-/* HEADER */
-header {
-  text-align: center;
-  background: linear-gradient(135deg, #0B1C36, #142850);
-  color: white;
-  padding: 40px 20px;
-  border-bottom: 5px solid #D4AF37;
+/* ===== NAVBAR ===== */
+.navbar {
+  background: #000;
+  color: #D4AF37;
+  border-bottom: 4px solid #D4AF37;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-header h1 {
-  font-size: 30px;
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.navbar h1 {
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
+  color: #D4AF37;
+  letter-spacing: 0.5px;
 }
 
-header p {
-  font-size: 15px;
-  opacity: 0.9;
-}
-
-/* INPUT DE BUSCA */
+/* ===== CAMPO DE BUSCA ===== */
 #search {
   width: 90%;
   max-width: 600px;
@@ -47,16 +56,22 @@ header p {
   padding: 12px 16px;
   border-radius: 12px;
   border: 2px solid #D4AF37;
+  background: #000;
+  color: #fff;
   font-size: 15px;
   outline: none;
   transition: 0.3s;
+}
+
+#search::placeholder {
+  color: #aaa;
 }
 
 #search:focus {
   box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
 }
 
-/* LISTA DE CÉLULAS */
+/* ===== LISTA DE CÉLULAS ===== */
 .lista {
   display: flex;
   flex-direction: column;
@@ -67,20 +82,21 @@ header p {
 }
 
 .card {
-  background: white;
+  background: #1a1a1a;
   border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
   transition: 0.3s;
+  border: 1px solid #333;
 }
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #D4AF37;
 }
 
 .card h2 {
-  color: #0B1C36;
+  color: #D4AF37;
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 10px;
@@ -88,7 +104,7 @@ header p {
 
 .card p {
   font-size: 14px;
-  color: #333;
+  color: #eee;
   margin: 4px 0;
 }
 
@@ -96,7 +112,7 @@ header p {
   display: inline-block;
   margin-top: 12px;
   background: #D4AF37;
-  color: white;
+  color: #000;
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 8px;
@@ -106,45 +122,28 @@ header p {
 
 .btn:hover {
   background: #c29d31;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  background: #0B1C36;
-  color: white;
-  padding: 30px 10px;
-  border-top: 4px solid #D4AF37;
-}
-
-footer p {
-  margin: 6px 0;
+  color: #000;
 }
 
 footer {
-  text-align: center;
-  background: #0B1C36;
+  background: #000;
   color: white;
-  padding: 30px 10px;
+  padding: 40px 10px;
   border-top: 4px solid #D4AF37;
+  text-align: center;
 }
 
 footer p {
-  margin: 6px 0;
+  margin-bottom: 15px;
+  font-size: 14px;
 }
 
-footer .instagram-link {
-  color: #D4AF37;
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: 0.3s;
+footer .instagram-icon svg {
+  transition: transform 0.3s, opacity 0.3s;
 }
 
-footer .instagram-link:hover {
+footer .instagram-icon:hover svg {
+  transform: scale(1.2);
   opacity: 0.85;
-  transform: translateY(-2px);
 }
 

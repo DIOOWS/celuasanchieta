@@ -8,8 +8,13 @@
 <link rel='manifest' href='manifest.json'>
 </head>
 <body>
-<header><h1>Células Igreja Atitude Anchieta</h1><p>Lista completa de todas as células, líderes e contatos</p></header>
-<main>
+<header class="navbar">
+  <div class="nav-container">
+    <img src="icon.png" alt="Logo Igreja Atitude" class="nav-logo">
+    <h1>Células Igreja Atitude Anchieta</h1>
+  </div>
+</header>
+
 <input id='search' type='text' placeholder='Buscar por célula, líder ou endereço...'>
 <section id='lista' class='lista'></section>
 </main>
@@ -83,16 +88,13 @@ if ('serviceWorker' in navigator) {
 
 <footer>
   <p>© 2025 Igreja Atitude Anchieta</p>
-  <p>
-    Siga-nos no Instagram:
-    <a href="https://www.instagram.com/atitude.anchieta/" target="_blank" class="instagram-link">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#D4AF37" viewBox="0 0 24 24">
-        <path d="M7.75 2C4.678 2 2 4.678 2 7.75v8.5C2 19.322 4.678 22 7.75 22h8.5c3.072 0 5.75-2.678 5.75-5.75v-8.5C22 4.678 19.322 2 16.25 2h-8.5zM7.75 4h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm9.75 1.25a.75.75 0 0 0 0 1.5h.01a.75.75 0 1 0 0-1.5h-.01zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 1.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"/>
-      </svg>
-      @atitude.anchieta
-    </a>
-  </p>
+  <a href="https://www.instagram.com/atitude.anchieta/" target="_blank" class="instagram-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="#D4AF37" viewBox="0 0 24 24">
+      <path d="M7.75 2C4.678 2 2 4.678 2 7.75v8.5C2 19.322 4.678 22 7.75 22h8.5c3.072 0 5.75-2.678 5.75-5.75v-8.5C22 4.678 19.322 2 16.25 2h-8.5zM7.75 4h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm9.75 1.25a.75.75 0 0 0 0 1.5h.01a.75.75 0 1 0 0-1.5h-.01zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 1.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"/>
+    </svg>
+  </a>
 </footer>
+
 
 
 
