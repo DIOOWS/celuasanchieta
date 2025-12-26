@@ -1,95 +1,100 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang='pt-BR'>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reuniões do Bairro</title>
-
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json">
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Células Igreja Atitude Anchieta</title>
+<link rel="stylesheet" href="style.css" />
+<link rel='manifest' href='manifest.json'>
 </head>
-
 <body>
-  <header>
-    <h1>Reuniões do Bairro</h1>
-    <p>Lista de casas, líderes e contatos</p>
-  </header>
+<header><h1>Células Igreja Atitude Anchieta</h1><p>Lista completa de todas as células, líderes e contatos</p></header>
+<main>
+<input id='search' type='text' placeholder='Buscar por célula, líder ou endereço...'>
+<section id='lista' class='lista'></section>
+</main>
+<footer><p>© 2025 Igreja Atitude Anchieta</p></footer>
+<script>
+const celulas = [
+  { celula: 'Papo Reto', perfil: 'Adolescentes', horario: 'Quarta/20h', lider: 'Luciene Firmo', contato: '21980940289', local: 'Rua Paraguaçú Carneiro, 120, Parque Ancheita' },
+  { celula: 'Mensageiros do Reino', perfil: 'Adolescentes', horario: 'Terça/20h', lider: 'Calebe Magnane dos Santos ', contato: '21 98186-4011', local: 'R. Luís Réis, 208 - Anchieta - Rio de Janeiro - RJ' },
+  { celula: 'Geração Eleita', perfil: 'Adolescentes', horario: 'Quinta/20h', lider: 'Raphael de Azevedo Marques ', contato: '21 99012-5867', local: 'Rua Joacy Fernando, 95 - Anchieta, Rio de Janeiro - RJ' },
+  { celula: 'Somos mais fortes com Deus', perfil: 'Adultos', horario: 'Terça/19:30h', lider: 'Luiz Romero ', contato: '21964851758', local: 'Rua Luciano Jácomo da Silva, 53, Parque Anchieta' },
+  { celula: 'De Fé em Fé', perfil: 'Adultos', horario: 'Terça/20h', lider: 'Alexandre dos Santos', contato: '21983110931', local: 'Travessa Jacinto Gomes, 11, Deodoro' },
+  { celula: 'Juntos Venceremos', perfil: 'Adultos', horario: 'Terça/20:30h', lider: 'Fatima Pereira ', contato: '21989499469', local: 'Rua Motorista José de Abreu, 178, Anchieta' },
+  { celula: 'Sementes de Fé', perfil: 'Adultos', horario: 'Terça/20:30h', lider: 'Rafaela Meneses', contato: '21997729393', local: 'Rua Alfredo Schwartz, 847, Bloco 22 apt 110, Nilópolis' },
+  { celula: 'Colossences 3', perfil: 'Adultos', horario: 'Quarta/20h', lider: 'Karine Cordeiro', contato: '21989492634', local: 'Rua Luís Portugal, 105, Fundos, Anchieta' },
+  { celula: 'Luz do Mundo', perfil: 'Adultos', horario: 'Sexta/20h', lider: 'Hugo Vellani', contato: '21960149248', local: 'Rua Juarana, 60, Apt 105, Mariópolis' },
+  { celula: 'De Glória em Glória', perfil: 'Adultos', horario: 'Quinta/20h', lider: 'Samy Carvalho', contato: '21964133536', local: 'Rua Paraguaçú Carneiro, 120, Parque Ancheita' },
+  { celula: 'Reobote', perfil: 'Adultos', horario: 'Quarta/20h', lider: 'Diego Raul', contato: '21988505420', local: 'Rua José da Mota, 163,  Casa1, Ricardo de Albuquerque' },
+  { celula: 'Missão que nasceu do alto ', perfil: 'Adultos', horario: 'Terça/19:30h', lider: 'Leandro Guimarães', contato: '21980961970', local: 'Rua Juarana, 58, Apt 205, Mariópolis' },
+  { celula: 'Emaús', perfil: 'Adultos', horario: 'Quinta/20:30h', lider: 'Diego Raul', contato: '21983919382', local: 'Rua Paraguaçú Carneiro, 120, Parque Ancheita' },
+  { celula: 'Novo Tempo', perfil: 'Adultos', horario: 'Terça/20h', lider: 'Cristiane Barbosa Dias ', contato: '(21) 97014-7572', local: 'R. Epifânio Dias, 64 - Anchieta - Rio de Janeiro - RJ' },
+  { celula: 'Frutos da Promessa', perfil: 'Adultos', horario: 'Quinta/20h', lider: 'Diogo Alex da Silva ', contato: '(21) 99439-1902', local: 'Rua Joacy Fernando, 95 - Anchieta, Rio de Janeiro - RJ' },
+  { celula: 'Frutos do amor', perfil: 'Adultos', horario: 'Terça/20:30h', lider: 'Ericson Gallo Barros dos Santos ', contato: '(21) 96858-7171', local: 'R. Araújo Rozo, 90 - Anchieta, Rio de Janeiro - RJ' },
+  { celula: 'Agnus Dei', perfil: 'Adultos', horario: 'Terça/20h', lider: 'Fabrício Mello dos Santos ', contato: '(21) 97286-9719', local: 'R. Luís Réis, 208 - Anchieta - Rio de Janeiro - RJ' },
+  { celula: 'Fruto do Espírito', perfil: 'Adultos', horario: 'Terça/20h', lider: 'Tania Maria Souza Ribeiro da Rosa ', contato: '(21) 97920-5985', local: 'Av. Chrisóstomo Pimentel de Oliveira, 230 - Casa 2 - Anchieta' },
+  { celula: 'Somos mais fortes com Deus Kids', perfil: 'Kids', horario: 'Terça/19:30h', lider: 'Glauciene', contato: '2197048895', local: 'Rua Luciano Jácomo da Silva, 53, Parque Anchieta' },
+  { celula: 'Sementes do Amanhã', perfil: 'Kids', horario: 'Quarta/20h', lider: 'Aquizia Ribeiro', contato: '21987910531', local: 'Rua Paraguaçú Carneiro, 120, Parque Ancheita' },
+  { celula: 'Sal da Terra', perfil: 'Kids', horario: 'Quarta/20h', lider: 'Carla Citera', contato: '21960149248', local: 'Rua Juarana, 60, Apt 105, Mariópolis' },
+  { celula: 'De Glória em Glória Kids', perfil: 'Kids', horario: 'Quinta/20h', lider: 'Ohana Cristina', contato: '21991060546', local: 'Rua Paraguaçú Carneiro, 120, Parque Ancheita' },
+  { celula: 'Reobote Kids', perfil: 'Kids', horario: 'Quinta/20h', lider: 'Bruna Pereira', contato: '21965118514', local: 'Rua José da Mota, 163,  Casa1, Ricardo de Albuquerque' },
+  { celula: 'Missão que nasceu do alto ', perfil: 'Kids', horario: 'Terça/19:30h', lider: 'Ohana Cristina', contato: '21991060546', local: 'Rua Juarana, 58, Apt 205, Mariópolis' },
+  { celula: 'Jesus copy Kids', perfil: 'Kids', horario: 'Terça/20h', lider: 'Cristiane Barbosa Dias ', contato: '(21) 97014-7572', local: 'R. Epifânio Dias, 64 - Anchieta - Rio de Janeiro - RJ' },
+  { celula: 'Soldadinhos do Reino', perfil: 'Kids', horario: 'Terça/20h', lider: 'Daniele Santos de Carvalho ', contato: '(21) 98296-9021', local: 'Av. Chrisóstomo Pimentel de Oliveira, 230 - Casa 2 - Anchieta - Rio de Janeiro - RJ' },
+  { celula: 'Frutos da Promessa kids', perfil: 'Kids', horario: 'Quinta/20h', lider: 'Grasiele Herculano Costa da Silva ', contato: '(21) 99181-1647', local: 'Rua Joacy Fernando, 95 - Anchieta, Rio de Janeiro - RJ' },
+  { celula: 'Sementes do Reino', perfil: 'Kids', horario: 'Terça/20h', lider: 'Geâmini Magnane dos Santos ', contato: '(21) 96841-3009', local: 'R. Luís Réis, 208 - Anchieta - Rio de Janeiro - RJ' },
+  { celula: 'Sementinhas de Cristo', perfil: 'Kids', horario: 'Terça/20:30h', lider: 'Thamirys Montenegro Tavares ', contato: '(21) 96830-8206', local: 'R. Araújo Rozo, 90 - Anchieta, Rio de Janeiro - RJ' },
+];
+const lista = document.getElementById('lista');
+const search = document.getElementById('search');
+function render(listaCelulas) {
+  lista.innerHTML = '';
+  listaCelulas.forEach(c => {
+    const telefone = c.contato.replace(/\D/g, '');
+    const linkWpp = `https://wa.me/55${telefone}`;
+    lista.innerHTML += `
+      <article class='card'>
+        <div class='info'>
+          <h2>${c.celula}</h2>
+          <p><strong>Perfil:</strong> ${c.perfil}</p>
+          <p><strong>Dia/Horário:</strong> ${c.horario}</p>
+          <p><strong>Líder:</strong> ${c.lider}</p>
+          <p><strong>Endereço:</strong> ${c.local}</p>
+        </div>
+        <a class='btn' href='${linkWpp}' target='_blank'>WhatsApp</a>
+      </article>`;
+  });
+}
+search.addEventListener('input', () => {
+  const termo = search.value.toLowerCase();
+  const filtrado = celulas.filter(c =>
+    c.celula.toLowerCase().includes(termo) ||
+    c.lider.toLowerCase().includes(termo) ||
+    c.local.toLowerCase().includes(termo)
+  );
+  render(filtrado);
+});
+render(celulas);
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
 
-  <main>
-    <input id="search" type="text" placeholder="Buscar por líder ou endereço..." />
+<footer>
+  <p>© 2025 Igreja Atitude Anchieta</p>
+  <p>
+    Siga-nos no Instagram:
+    <a href="https://www.instagram.com/atitude.anchieta/" target="_blank" class="instagram-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#D4AF37" viewBox="0 0 24 24">
+        <path d="M7.75 2C4.678 2 2 4.678 2 7.75v8.5C2 19.322 4.678 22 7.75 22h8.5c3.072 0 5.75-2.678 5.75-5.75v-8.5C22 4.678 19.322 2 16.25 2h-8.5zM7.75 4h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm9.75 1.25a.75.75 0 0 0 0 1.5h.01a.75.75 0 1 0 0-1.5h-.01zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 1.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"/>
+      </svg>
+      @atitude.anchieta
+    </a>
+  </p>
+</footer>
 
-    <section id="lista-reunioes" class="lista">
-      <!-- Cards entram aqui -->
-    </section>
-  </main>
 
-  <footer>
-    <p>Atualizado sempre que necessário ✅</p>
-  </footer>
 
-  <script>
-    const reunioes = [
-      {
-        casa: "Casa 1",
-        lider: "João Silva",
-        endereco: "Rua das Flores, 123",
-        telefone: "5511999999999"
-      },
-      {
-        casa: "Casa 2",
-        lider: "Maria Souza",
-        endereco: "Av. Central, 456",
-        telefone: "5511988888888"
-      },
-      {
-        casa: "Casa 3",
-        lider: "Carlos Lima",
-        endereco: "Rua do Sol, 90",
-        telefone: "5511977777777"
-      }
-    ];
-
-    const lista = document.getElementById("lista-reunioes");
-    const search = document.getElementById("search");
-
-    function render(listaReunioes) {
-      lista.innerHTML = "";
-      listaReunioes.forEach((item) => {
-        const linkWpp = `https://wa.me/${item.telefone}`;
-
-        lista.innerHTML += `
-          <article class="card">
-            <div class="info">
-              <h2>${item.casa}</h2>
-              <p><strong>Líder:</strong> ${item.lider}</p>
-              <p><strong>Endereço:</strong> ${item.endereco}</p>
-              <p><strong>Telefone:</strong> ${item.telefone}</p>
-            </div>
-
-            <a class="btn" href="${linkWpp}" target="_blank">
-              WhatsApp
-            </a>
-          </article>
-        `;
-      });
-    }
-
-    search.addEventListener("input", () => {
-      const termo = search.value.toLowerCase();
-      const filtrado = reunioes.filter(r =>
-        r.lider.toLowerCase().includes(termo) ||
-        r.endereco.toLowerCase().includes(termo) ||
-        r.casa.toLowerCase().includes(termo)
-      );
-      render(filtrado);
-    });
-
-    render(reunioes);
-
-    // registra service worker (PWA)
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js");
-    }
-  </script>
 </body>
 </html>
