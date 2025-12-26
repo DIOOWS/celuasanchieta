@@ -1,48 +1,41 @@
-const cacheName = "celulas-atitude-cache-v2";
-
-const filesToCache = [
+// SERVICE WORKER - LIMPEZA AUTOMÁTICA E AUTOATUALIZAÇÃO
+const CACHE_NAME = "celulas-atitude-cache-v5";
+const FILES_TO_CACHE = [
   "./",
   "./index.html",
   "./style.css",
   "./manifest.json",
   "./icon.png",
-  "./logo.png"
+  "./logo.png",
+  "./update-sw.js"
 ];
 
-// Instalação e cache inicial
+// Instala e faz cache inicial
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(cacheName).then((cache) => {
-      return cache.addAll(filesToCache);
-    })
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
   );
-  self.skipWaiting(); // ativa o SW imediatamente
+  self.skipWaiting();
 });
 
-// Ativação - remove caches antigos
+// Ativa e limpa caches antigos
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keyList) => {
-      return Promise.all(
-        keyList.map((key) => {
-          if (key !== cacheName) {
-            return caches.delete(key);
-          }
-        })
-      );
-    })
+    caches.keys().then((keys) =>
+      Promise.all(keys.map((key) => key !== CACHE_NAME && caches.delete(key)))
+    )
   );
   self.clients.claim();
 });
 
-// Intercepta requisições e responde com cache quando possível
+// Responde com cache e atualiza
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
       return (
         response ||
         fetch(event.request).then((fetchResponse) => {
-          return caches.open(cacheName).then((cache) => {
+          return caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, fetchResponse.clone());
             return fetchResponse;
           });
