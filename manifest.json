@@ -3,7 +3,7 @@
   "short_name": "Células Atitude",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0B1C36",
+  "background_color": "#000000",
   "theme_color": "#D4AF37",
   "icons": [
     {
