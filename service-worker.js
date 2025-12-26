@@ -1,5 +1,5 @@
 // SERVICE WORKER - LIMPEZA AUTOMÁTICA E AUTOATUALIZAÇÃO
-const CACHE_NAME = "celulas-atitude-cache-v5";
+const CACHE_NAME = "celulas-atitude-cache-v6";
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
