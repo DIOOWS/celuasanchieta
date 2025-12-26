@@ -1,5 +1,5 @@
 /* ==========================
-   IGREJA ATITUDE - TEMA PRETO E DOURADO
+   IGREJA ATITUDE - TEMA PRETO, DOURADO E FUNDO CLARO
    ========================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
@@ -11,18 +11,18 @@
   font-family: "Poppins", Arial, sans-serif;
 }
 
-/* ===== CONFIGURAÇÕES GERAIS ===== */
+/* ===== CORPO ===== */
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: #f4f6fa; /* fundo claro e limpo */
+  color: #111;
   line-height: 1.6;
-  padding-top: 90px; /* espaço pra navbar fixa */
+  padding-top: 90px;
 }
 
 /* ===== NAVBAR ===== */
 .navbar {
-  background: #000;
-  border-bottom: 4px solid #D4AF37;
+  background: #000; /* preto */
+  border-bottom: 4px solid #D4AF37; /* dourado */
   padding: 12px 20px;
   display: flex;
   align-items: center;
@@ -64,4 +64,95 @@ body {
   margin: 25px auto;
   padding: 12px 16px;
   border-radius: 12px;
-  border: 2px solid
+  border: 2px solid #D4AF37;
+  background: #fff;
+  color: #000;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+#search::placeholder {
+  color: #666;
+}
+
+#search:focus {
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+/* ===== LISTA DE CÉLULAS ===== */
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto 50px auto;
+  padding: 0 15px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  border: 1px solid #eee;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #D4AF37;
+}
+
+.card h2 {
+  color: #111;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #333;
+  margin: 4px 0;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 12px;
+  background: #D4AF37;
+  color: #000;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #c29d31;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #000;
+  color: white;
+  padding: 40px 10px;
+  border-top: 4px solid #D4AF37;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+footer .instagram-icon svg {
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+footer .instagram-icon:hover svg {
+  transform: scale(1.2);
+  opacity: 0.85;
+}
