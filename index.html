@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reuniões do Bairro</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+  <header>
+    <h1>Reuniões do Bairro</h1>
+    <p>Lista de casas, líderes e contatos</p>
+  </header>
+
+  <main>
+    <input id="search" type="text" placeholder="Buscar por líder ou endereço..." />
+
+    <section id="lista-reunioes" class="lista">
+      <!-- Cards entram aqui -->
+    </section>
+  </main>
+
+  <footer>
+    <p>Atualizado sempre que necessário ✅</p>
+  </footer>
+
+  <script>
+    const reunioes = [
+      {
+        casa: "Casa 1",
+        lider: "João Silva",
+        endereco: "Rua das Flores, 123",
+        telefone: "5511999999999"
+      },
+      {
+        casa: "Casa 2",
+        lider: "Maria Souza",
+        endereco: "Av. Central, 456",
+        telefone: "5511988888888"
+      },
+      {
+        casa: "Casa 3",
+        lider: "Carlos Lima",
+        endereco: "Rua do Sol, 90",
+        telefone: "5511977777777"
+      }
+    ];
+
+    const lista = document.getElementById("lista-reunioes");
+    const search = document.getElementById("search");
+
+    function render(listaReunioes) {
+      lista.innerHTML = "";
+      listaReunioes.forEach((item) => {
+        const linkWpp = `https://wa.me/${item.telefone}`;
+
+        lista.innerHTML += `
+          <article class="card">
+            <div class="info">
+              <h2>${item.casa}</h2>
+              <p><strong>Líder:</strong> ${item.lider}</p>
+              <p><strong>Endereço:</strong> ${item.endereco}</p>
+              <p><strong>Telefone:</strong> ${item.telefone}</p>
+            </div>
+
+            <a class="btn" href="${linkWpp}" target="_blank">
+              WhatsApp
+            </a>
+          </article>
+        `;
+      });
+    }
+
+    search.addEventListener("input", () => {
+      const termo = search.value.toLowerCase();
+      const filtrado = reunioes.filter(r =>
+        r.lider.toLowerCase().includes(termo) ||
+        r.endereco.toLowerCase().includes(termo) ||
+        r.casa.toLowerCase().includes(termo)
+      );
+      render(filtrado);
+    });
+
+    render(reunioes);
+
+    // registra service worker (PWA)
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+</body>
+</html>
